@@ -1,0 +1,9 @@
+.venv
+.git
+tests
+terraform
+web
+scripts
+evidence
+__pycache__
+*.md

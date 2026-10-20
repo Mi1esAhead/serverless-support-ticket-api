@@ -1,0 +1,7 @@
+# Copy to terraform.tfvars (git-ignored) and edit.
+hosted_zone_name = "m1portfolio.com"
+api_hostname     = "tickets-api.m1portfolio.com"
+allowed_origins  = ["https://m1portfolio.com", "https://www.m1portfolio.com"]
+alert_email      = "you@example.com"
+image_tag        = "v1"
+demo_enabled     = true

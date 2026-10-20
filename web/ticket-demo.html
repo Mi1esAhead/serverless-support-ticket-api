@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support Ticket API | Miles James</title>
+  <link rel="stylesheet" href="./ticket-demo.css">
+  <script src="./ticket-demo.js" defer></script>
+</head>
+<body>
+<main>
+  <a href="https://m1portfolio.com/">← Portfolio</a>
+  <p class="eyebrow">AWS · TERRAFORM · PYTHON</p>
+  <h1>Support ticket API</h1>
+  <p>A live serverless demo. Generate a synthetic ticket, save it, then retrieve it from S3.</p>
+  <p><strong>Synthetic data only.</strong> Do not enter names, passwords, email addresses, or real support issues. Anyone with a ticket ID can retrieve that ticket.</p>
+  <div class="toolbar">
+    <strong id="status" role="status">CHECKING</strong>
+    <button id="check" type="button">Check API status</button>
+  </div>
+  <p id="availability" aria-live="polite">Checking application availability…</p>
+  <form id="create-form">
+    <fieldset id="create-fields" disabled>
+      <legend>Create a synthetic ticket</legend>
+      <label for="description">Sample description</label>
+      <textarea id="description" rows="3" readonly required></textarea>
+      <button id="generate" type="button">Generate another sample</button>
+      <label for="priority">Priority</label>
+      <select id="priority"><option>low</option><option selected>medium</option><option>high</option></select>
+      <button type="submit">Create ticket</button>
+    </fieldset>
+  </form>
+  <form id="lookup-form">
+    <fieldset id="lookup-fields" disabled>
+      <legend>Retrieve a ticket</legend>
+      <label for="ticket-id">Ticket UUID</label>
+      <input id="ticket-id" type="text" required maxlength="36" spellcheck="false" autocomplete="off" placeholder="Created ticket ID appears here">
+      <button type="submit">Retrieve ticket</button>
+    </fieldset>
+  </form>
+  <h2>API response</h2>
+  <pre id="result" role="status" aria-live="polite">No request yet.</pre>
+  <p class="note">Tickets are cleaned up by an S3 lifecycle rule. Removal is asynchronous, not exactly 24 hours after creation. ONLINE checks the application, not S3 storage.</p>
+</main>
+</body>
+</html>
